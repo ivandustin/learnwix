@@ -86,7 +86,7 @@ Below is a sample `.wxs` file.
 The `heat.exe` is a program that is used to automatically generate `.wxs` file from a directory structure. Example below.
 
 ```bash
-heat dir <directory> -gg -cg <component group name> -o <name>.wxs
+heat dir <directory> -gg -cg <component group name> -dr APPLICATIONROOTDIRECTORY -o <name>.wxs
 ```
 
 The Component Group is the name that can be linked to the main `.wxs` file inside the `Feature` element.
