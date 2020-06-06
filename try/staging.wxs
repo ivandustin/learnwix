@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="APPLICATIONROOTDIRECTORY" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="STAGINGDIRECTORY">
+            <Component Id="cmpD3F2C8EE32C721CE98863E670635082A" Directory="APPLICATIONROOTDIRECTORY" Guid="{9E74B9CF-F7BD-4E94-834B-01B0D92AF0CE}">
+                <File Id="fil7113E9B55ABE3979A83653ED9268C165" KeyPath="yes" Source="SourceDir\hello.txt" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>
