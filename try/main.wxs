@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" UpgradeCode="8ca3e7b0-b1d1-4aad-a348-6bcdaa9b7d49" Version="1.10.0" Language="1033" Name="Hello World App" Manufacturer="Hello world Inc">
+    <Product Id="*" UpgradeCode="8ca3e7b0-b1d1-4aad-a348-6bcdaa9b7d49" Version="1.10.0" Language="1033" Name="Hello World App" Manufacturer="Hello World Inc">
         <Package InstallerVersion="300" Compressed="yes"/>
         <Media Id="1" Cabinet="app.cab" EmbedCab="yes" />
 
@@ -17,6 +17,25 @@
         <Feature Id="MainApplication" Title="Main Application" Level="1">
             <ComponentGroupRef Id="STAGINGDIRECTORY" />
         </Feature>
+
+        <CustomAction Id="PostInstall"
+            Directory="APPLICATIONROOTDIRECTORY"
+            ExeCommand="cmd /C bin\postinstall.bat"
+            Execute="commit"
+            Impersonate="no"
+            Return="ignore" />
+
+        <CustomAction Id="PreUninstall"
+            Directory="APPLICATIONROOTDIRECTORY"
+            ExeCommand="cmd /C bin\preuninstall.bat"
+            Execute="deferred"
+            Impersonate="no"
+            Return="ignore" />
+
+        <InstallExecuteSequence>
+            <Custom Action="PostInstall" Before="InstallFinalize">NOT REMOVE</Custom>
+            <Custom Action="PreUninstall" Before="UnpublishFeatures">Installed</Custom>
+        </InstallExecuteSequence>
 
         <UI Id="WixUI_Minimal">
             <TextStyle Id="WixUI_Font_Normal" FaceName="Segoe UI" Size="8" />

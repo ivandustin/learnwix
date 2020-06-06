@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
-        <DirectoryRef Id="APPLICATIONROOTDIRECTORY" />
+        <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+            <Directory Id="dirF6FBA1E8F13DB8FDDABED8EB2418A358" Name="bin" />
+        </DirectoryRef>
     </Fragment>
     <Fragment>
         <ComponentGroup Id="STAGINGDIRECTORY">
-            <Component Id="cmpD3F2C8EE32C721CE98863E670635082A" Directory="APPLICATIONROOTDIRECTORY" Guid="{9E74B9CF-F7BD-4E94-834B-01B0D92AF0CE}">
+            <Component Id="cmpD3F2C8EE32C721CE98863E670635082A" Directory="APPLICATIONROOTDIRECTORY" Guid="{8ABE1760-4121-468D-8082-8E73CCEC191C}">
                 <File Id="fil7113E9B55ABE3979A83653ED9268C165" KeyPath="yes" Source="SourceDir\hello.txt" />
+            </Component>
+            <Component Id="cmp3B15A1C49261FD194479E31A11A3DD61" Directory="dirF6FBA1E8F13DB8FDDABED8EB2418A358" Guid="{31412E1D-9FDE-4B19-B038-39B9C845EA4A}">
+                <File Id="filB708BB67842FD3E7455D0AE0B66595CD" KeyPath="yes" Source="SourceDir\bin\postinstall.bat" />
+            </Component>
+            <Component Id="cmpE16DF18422609FE808C3DC3EEC72123B" Directory="dirF6FBA1E8F13DB8FDDABED8EB2418A358" Guid="{A1ED12AB-F8F5-41AF-96FF-F7DCDCDE0461}">
+                <File Id="filE45BDC88A1969FFEB39596C769C404E9" KeyPath="yes" Source="SourceDir\bin\preuninstall.bat" />
             </Component>
         </ComponentGroup>
     </Fragment>
